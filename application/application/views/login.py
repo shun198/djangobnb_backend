@@ -2,7 +2,6 @@ from logging import getLogger
 
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, JsonResponse
-from project.settings.environment import django_settings
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny
@@ -11,6 +10,7 @@ from rest_framework.viewsets import ModelViewSet, ViewSet
 from application.models import User
 from application.serializers import LoginSerializer, UserSerializer
 from application.utils.logs import LoggerName
+from project.settings.environment import django_settings
 
 
 class UserViewSet(ModelViewSet):
@@ -51,7 +51,11 @@ class LoginViewSet(ViewSet):
 
 
 if django_settings.DJANGO_SETTINGS_MODULE == "project.settings.local":
-    from drf_spectacular.utils import OpenApiExample, OpenApiResponse, extend_schema
+    from drf_spectacular.utils import (
+        OpenApiExample,
+        OpenApiResponse,
+        extend_schema,
+    )
 
     extend_schema(
         request=LoginSerializer,

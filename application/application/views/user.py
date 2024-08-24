@@ -7,7 +7,6 @@ from django.db import DatabaseError
 from django.http import HttpResponse, JsonResponse
 from django.middleware.csrf import get_token
 from django.utils import timezone
-from project.settings.environment import django_settings
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -27,6 +26,7 @@ from application.serializers import (
     VerifyUserSerializer,
 )
 from application.utils.logs import LoggerName
+from project.settings.environment import django_settings
 
 
 class UserViewSet(ModelViewSet):

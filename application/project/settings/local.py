@@ -46,21 +46,3 @@ EMAIL_HOST_PASSWORD = ""
 EMAIL_PORT = 1025
 EMAIL_USE_TLS = False
 EMAIL_USE_TLS = False
-
-# Create an SNS client
-# SNS_CLIENT = boto3.client(
-#     "sns",
-#     aws_access_key_id="localstack",
-#     aws_secret_access_key="localstack",
-#     region_name=aws_settings.AWS_DEFAULT_REGION_NAME,
-#     endpoint_url=aws_settings.AWS_SNS_ENDPOINT_URL,
-# )
-
-# AWSの設定
-SQS_CLIENT = boto3.client(
-    "sqs",
-    endpoint_url=aws_settings.AWS_SQS_ENDPOINT,
-    aws_access_key_id="localstack",
-    aws_secret_access_key="localstack",
-    region_name=aws_settings.AWS_DEFAULT_REGION_NAME,
-)
